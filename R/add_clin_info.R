@@ -117,7 +117,7 @@ add_interpretation_columns = function(snv){
     snv = dplyr::select(snv, rowid, gene,
                         contains("Horak"),
                         contains("tsg"),
-                        contains("links"),
+                        contains("link"),
                         contains("Hotspot"),
                         contains("COSMIC"),
                         contains("MAF"))
