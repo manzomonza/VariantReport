@@ -12,7 +12,7 @@ add_strand_ratios = function(snv){
   snv$log2_read_ratio_Ref = log2((snv$FSRF+1)/(snv$FSRR+1))
   snv$log2_read_ratio_Alt = round(  snv$log2_read_ratio_Alt, digits = 2)
   snv$log2_read_ratio_Ref = round(  snv$log2_read_ratio_Ref, digits = 2)
-  snv$abs_delta = round(abs(snv$log2_read_ratio_Alt - snv$log2_read_ratio_Ref))
+  snv$abs_delta = round(abs(snv$log2_read_ratio_Alt - snv$log2_read_ratio_Ref), digits = 2)
   return(snv)
 }
 
