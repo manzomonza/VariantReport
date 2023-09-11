@@ -114,13 +114,12 @@ add_interpretation_columns = function(snv){
     snv = dplyr::left_join(snv, tsg)
     snv = dplyr::left_join(snv, gnomad)
     # ## SELECT
-    snv = dplyr::select(snv, rowid, gene, coding, protein,
+    snv = dplyr::select(snv, rowid, gene,
                         contains("Horak"),
                         contains("tsg"),
                         contains("link"),
                         contains("Hotspot"),
                         contains("COSMIC"),
                         contains("MAF"))
-    snv = VariantAnnotationModules::amino_acid_code_3_to_1(snv)
     return(snv)
   }
