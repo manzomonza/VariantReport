@@ -114,7 +114,7 @@ add_interpretation_columns = function(snv){
     snv = dplyr::left_join(snv, tsg)
     snv = dplyr::left_join(snv, gnomad)
     # ## SELECT
-    snv = dplyr::select(snv, rowid, gene, coding, protein
+    snv = dplyr::select(snv, rowid, gene, coding, protein,
                         contains("Horak"),
                         contains("tsg"),
                         contains("link"),
