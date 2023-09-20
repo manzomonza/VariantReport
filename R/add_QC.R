@@ -41,6 +41,6 @@ display_variants = function(snv){
 #'
 #' @examples
 display_std_metrics = function(snv){
-  snv = dplyr::select(snv, rowid, gene,coding, protein, AF, QUAL, totalDepth )
+  snv = dplyr::select(snv, rowid, gene,coding, protein, AF, HOMLEN, QUAL, totalDepth )
   return(snv)
 }
