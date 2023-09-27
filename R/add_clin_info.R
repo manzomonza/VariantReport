@@ -35,7 +35,7 @@ read_cancerHotspot = function(cancerHotspot_path){
 read_TSG = function(tsg_path){
   if(file.exists(tsg_path)){
     tsg = readr::read_tsv(tsg_path)
-    tsg = dplyr::select(tsg, rowid, gene, tsgInfo)
+    tsg = dplyr::select(tsg, rowid, gene, TSG)
     return(tsg)
   }
 }
@@ -116,7 +116,7 @@ add_interpretation_columns = function(snv){
     # ## SELECT
     snv = dplyr::select(snv, rowid, gene,
                         contains("Horak"),
-                        contains("tsg"),
+                        contains("TSG"),
                         contains("link"),
                         contains("Hotspot"),
                         contains("COSMIC"),
