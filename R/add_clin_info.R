@@ -1,8 +1,8 @@
 # ##
 # files = list.files(path = "/Users/manzo/USB/USB_Diagnostics/genie/testfiles/Y537_B2023.6661_OcaV3_output/annotation_output", full.names = TRUE)
 #
-# annotation_fp = VariantAnnotationModules::annotation_filepaths('/Users/manzo/USB/USB_Diagnostics/genie/testfiles/Y537_B2023.6661_OcaV3_output')
-# #lapply(annotation_fp[-7], readr::read_tsv)
+# annotpaths = VariantAnnotationModules::annotation_filepaths('/Users/manzo/USB/USB_Diagnostics/genie/testfiles/Y537_B2023.6661_OcaV3_output')
+# #lapply(annotpaths[-7], readr::read_tsv)
 
 #' read in annotation FP cancerHotspot
 #'
@@ -97,15 +97,16 @@ read_Horak = function(horak_path){
 #' @export
 #'
 #' @examples
-add_interpretation_columns = function(snv){
+add_interpretation_columns = function(snv,
+                                      annotpaths){
     snv = addLinks_oncokb(snv)
     snv = addLinks_clinvar(snv, clinvar_hits)
     ## read in files
-    horak = read_Horak(annotation_fp$Horak)
-    cancerHotspot = read_cancerHotspot(annotation_fp$cancerHotspot)
-    cosmic = read_COSMIC(annotation_fp$COSMIC)
-    tsg = read_TSG(annotation_fp$TSG)
-    gnomad = read_Gnomad(annotation_fp$gnomad)
+    horak = read_Horak(annotpaths$Horak)
+    cancerHotspot = read_cancerHotspot(annotpaths$cancerHotspot)
+    cosmic = read_COSMIC(annotpaths$COSMIC)
+    tsg = read_TSG(annotpaths$TSG)
+    gnomad = read_Gnomad(annotpaths$gnomad)
 
     ## LEFT JOINS
     snv = dplyr::left_join(snv, horak)

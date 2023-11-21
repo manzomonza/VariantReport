@@ -4,7 +4,7 @@
 \alias{add_interpretation_columns}
 \title{Add Clinical interpretation columns}
 \usage{
-add_interpretation_columns(snv)
+add_interpretation_columns(snv, annotpaths)
 }
 \arguments{
 \item{snv}{}
